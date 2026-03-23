@@ -1,7 +1,6 @@
-ProjetArchilogicielEthan – Médiathèque
-Projet R4.01 Architecture logicielle – BUT2 FI  
-Gestion des réservations, emprunts et retours d'une médiathèque.
----
+ProjetArchilogicielEthan 
+Projet R4.01 Architecture logicielle – BUT2   
+Ethan Tanim Alexandre---
 Structure du projet
 ```
 src/
@@ -47,30 +46,41 @@ java -cp out client.ClientEmprunt localhost 2001
 java -cp out client.ClientRetour localhost 2002
 ```
 ---
-Protocole bttp2.0
-Service	Port	Requête	Réponse
-Réservation	2000	`RESERVE <numAbonne> <idDoc>`	`OK ...` / `KO ...`
-Emprunt	2001	`EMPRUNTE <numAbonne> <idDoc>`	`OK ...` / `KO ...`
-Retour	2002	`RETOUR <idDoc> [DEGRADE]`	`OK ...` / `KO ...`
+
+## 🛰 Protocole BTTP 2.0 (BretteSoft Transport Protocol)
+
+| Service | Port | Requête | Réponse |
+| :--- | :--- | :--- | :--- |
+| **Réservation** | 2000 | `RESERVE <numAbonne> <idDoc>` | `OK ...` / `KO ...` |
+| **Emprunt** | 2001 | `EMPRUNTE <numAbonne> <idDoc>` | `OK ...` / `KO ...` |
+| **Retour** | 2002 | `RETOUR <idDoc> [DEGRADE]` | `OK ...` / `KO ...` |
+
 ---
-Certifications BretteSoft© implémentées
-Géronimo
-Retard > 2 semaines lors d'un retour → bannissement 1 mois de l'abonné
-Document rendu dégradé (`DEGRADE`) → bannissement 1 mois
-Grand Chaman
-Lors d'une réservation, si le document est réservé avec ≤ 60s restantes :
-le client est mis en attente (concert céleste), puis la réservation est
-tentée automatiquement dès expiration.
-Sitting Bull
-(Optionnel – nécessite javax.mail) Si le document n'est pas disponible,
-proposer à l'abonné une alerte email lors du retour.
+
+## 🛡 Certifications BretteSoft© Implémentées
+
+### 🏹 Géronimo
+* **Retards :** Si le retard est supérieur à 2 semaines lors d'un retour, l'abonné est banni pendant 1 mois.
+* **Dégradations :** Un document rendu avec le flag `DEGRADE` entraîne un bannissement immédiat de 1 mois.
+
+### 🧘 Grand Chaman
+* **Gestion de l'attente :** Lors d'une réservation, si le document est actuellement réservé mais qu'il reste $\le 60$ secondes avant expiration, le client est mis en attente ("concert céleste") et la réservation est tentée automatiquement dès la libération.
+
+### 🐂 Sitting Bull
+* **Alertes (Optionnel) :** Si le document n'est pas disponible, proposition à l'abonné de recevoir une alerte email lors du retour (nécessite `javax.mail`).
+
 ---
-Données en dur (Mediatheque.java)
-Abonnés :
-n°1 Alice Dupont (adulte)
-n°2 Bob Martin (mineur, né 2010)
-n°3 Claire Durand (adulte)
-n°4 David Bernard (adulte)
-n°5 Emma Petit (adulte)
-Livres : L001 à L004  
+
+## 📋 Données en dur (Mediatheque.java)
+
+**Abonnés :**
+* `n°1` Alice Dupont (Adulte)
+* `n°2` Bob Martin (Mineur, né en 2010)
+* `n°3` Claire Durand (Adulte)
+* `n°4` David Bernard (Adulte)
+* `n°5` Emma Petit (Adulte)
+
+**Documents :**
+* **Livres :** `L001` à `L004`
+
 DVDs : D001 à D005 (D002, D004 = adulte +16 ans)
