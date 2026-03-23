@@ -57,20 +57,6 @@ java -cp out client.ClientRetour localhost 2002
 
 ---
 
-## 🛡 Certifications BretteSoft© Implémentées
-
-### 🏹 Géronimo
-* **Retards :** Si le retard est supérieur à 2 semaines lors d'un retour, l'abonné est banni pendant 1 mois.
-* **Dégradations :** Un document rendu avec le flag `DEGRADE` entraîne un bannissement immédiat de 1 mois.
-
-### 🧘 Grand Chaman
-* **Gestion de l'attente :** Lors d'une réservation, si le document est actuellement réservé mais qu'il reste $\le 60$ secondes avant expiration, le client est mis en attente ("concert céleste") et la réservation est tentée automatiquement dès la libération.
-
-### 🐂 Sitting Bull
-* **Alertes (Optionnel) :** Si le document n'est pas disponible, proposition à l'abonné de recevoir une alerte email lors du retour (nécessite `javax.mail`).
-
----
-
 ## 📋 Données en dur (Mediatheque.java)
 
 **Abonnés :**
