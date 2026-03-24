@@ -1,6 +1,6 @@
-ProjetArchilogicielEthan 
+Projet Archi Logiciel 
 Projet R4.01 Architecture logicielle – BUT2   
-Ethan Tanim Alexandre---
+Ethan - Tanim - Alexandre
 Structure du projet
 ```
 src/
